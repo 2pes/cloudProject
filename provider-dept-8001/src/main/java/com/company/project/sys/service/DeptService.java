@@ -10,18 +10,18 @@ public interface DeptService {
      * @param deptEntity
      * @return
      */
-    boolean addDept(Dept deptEntity);
+    boolean add(Dept deptEntity);
 
     /**
      * 根据id查找
      * @param deptNo
      * @return
      */
-    Dept findById(Long deptNo);
+    Dept get(Long deptNo);
 
     /**
      * 查询全部
      * @return
      */
-    List<Dept> findAll();
+    List<Dept> list();
 }

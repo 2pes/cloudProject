@@ -19,17 +19,17 @@ public class DeptServiceImpl implements DeptService {
     DeptDao deptDao;
 
     @Override
-    public boolean addDept(Dept deptEntity) {
-        return deptDao.addDept(deptEntity);
+    public boolean add(Dept dept) {
+        return deptDao.addDept(dept);
     }
 
     @Override
-    public Dept findById(Long deptNo) {
-        return deptDao.findById(deptNo);
+    public Dept get(Long id) {
+        return deptDao.findById(id);
     }
 
     @Override
-    public List<Dept> findAll() {
+    public List<Dept> list() {
         return deptDao.findAll();
     }
 }

@@ -8,8 +8,9 @@
     <artifactId>cloudProject</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>project-api</module>
-        <module>project-dept-8001</module>
+        <module>api</module>
+        <module>provider-dept-8001</module>
+        <module>consumer-dept-80</module>
     </modules>
     <packaging>pom</packaging>
 

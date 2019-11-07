@@ -18,19 +18,18 @@ public class DeptController {
     private DeptService deptService;
 
     @RequestMapping(value = "/dept/add", method = RequestMethod.POST)
-    public boolean addDept(@RequestBody Dept deptEntity) {
-        return deptService.addDept(deptEntity);
+    public boolean add(@RequestBody Dept dept) {
+        return deptService.add(dept);
     }
 
-    @RequestMapping(value = "/dept/findById/{deptNo}", method = RequestMethod.GET)
-    public Dept findById(@PathVariable("deptNo") Long deptNo) {
-        return deptService.findById(deptNo);
+    @RequestMapping(value = "/dept/get/{id}", method = RequestMethod.GET)
+    public Dept get(@PathVariable("id") Long id) {
+        return deptService.get(id);
     }
 
-    @RequestMapping(value = "/dept/findAll", method = RequestMethod.GET)
-    public List<Dept> findAll() {
-        List<Dept> all = deptService.findAll();
-        return all;
+    @RequestMapping(value = "/dept/list", method = RequestMethod.GET)
+    public List<Dept> list() {
+        return deptService.list();
     }
 
 
