@@ -43,4 +43,14 @@ mybatis:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka/,http://euraka7002.com:7002/eureka/,http://euraka7003.com:7003/eureka/
+  instance:
+    instance-id: provider-dept-8001
+    prefer-ip-address: true #显示ip地址
+
+info:
+  app.name: project-cloud
+  company.name: com.company.project
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
