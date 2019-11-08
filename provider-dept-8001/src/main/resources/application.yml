@@ -14,7 +14,6 @@ spring:
     password: cloud
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-
     #druid连接池配置
     initialSize: 5
     minIdle: 5
@@ -38,3 +37,10 @@ mybatis:
   mapper-locations: classpath:mapper/**/*.xml
   type-aliases-package: com.company.project.sys.model
   config-location: classpath:mybatis.cfg.xml        # mybatis配置文件所在路径
+
+
+#客户端注册进eureka服务列表
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
