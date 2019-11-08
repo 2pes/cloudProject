@@ -10,8 +10,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.company.project</groupId>
-    <artifactId>euraka-7002</artifactId>
+    <artifactId>eureka-7003</artifactId>
     <version>1.0-SNAPSHOT</version>
+
     <dependencies>
         <!--eureka-server 服务端-->
         <dependency>
@@ -29,6 +30,5 @@
         </dependency>
 
     </dependencies>
-
 
 </project>
