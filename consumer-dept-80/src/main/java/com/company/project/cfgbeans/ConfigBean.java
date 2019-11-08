@@ -21,7 +21,9 @@ public class ConfigBean {
         return new RestTemplate();
     }
 
-    @Bean
+   /*
+   改为自定义的rule
+   @Bean
     public IRule randomRule() {
         //轮询
         //return new RoundRobinRule();
@@ -29,5 +31,5 @@ public class ConfigBean {
         return new RandomRule();
         //随机
         //return new RetryRule();
-    }
+    }*/
 }

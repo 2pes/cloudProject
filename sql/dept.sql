@@ -13,7 +13,13 @@
 
  Date: 08/11/2019 20:35:40
 */
-
+-- create user 'cloud'@'%' identified by 'cloud';
+-- create database cloud_test1 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+-- create database cloud_test2 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+-- create database cloud_test3 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;
+-- grant create,alter,drop,select,insert,update,delete,REFERENCES on cloud_test1.* to cloud@'%';
+-- grant create,alter,drop,select,insert,update,delete,REFERENCES on cloud_test2.* to cloud@'%';
+-- grant create,alter,drop,select,insert,update,delete,REFERENCES on cloud_test3.* to cloud@'%';
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
