@@ -19,6 +19,7 @@
         <module>consumer-dept-feign</module>
         <module>provider-dept-hystrix</module>
         <module>consumer-hystrix-dashboard</module>
+        <module>zuul-gateway-9527</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -104,7 +105,7 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
                     <delimiters>
-                        <delimit>${}</delimit>
+                        <delimit>$</delimit>
                     </delimiters>
                 </configuration>
             </plugin>
