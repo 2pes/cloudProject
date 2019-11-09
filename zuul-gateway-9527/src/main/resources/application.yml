@@ -19,3 +19,11 @@ info:
   company.name: com.company.project
   build.artifactId: ${project.artifactId}
   build.version: ${project.version}
+zuul:
+  routes:
+    zuulDept.serviceId: provider-dept
+    zuulDept.path: /zuulDept/**
+  #  ignored-services: provider-dept
+  ignored-services: "*"
+  prefix: /cloudDept
+  #http://zuul9527.com:9527/cloudDept/zuulDept/dept/list
