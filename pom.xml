@@ -17,6 +17,7 @@
         <module>provider-dept-8002</module>
         <module>provider-dept-8003</module>
         <module>consumer-dept-feign</module>
+        <module>provider-dept-hystrix</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -101,7 +102,7 @@
                 <artifactId>maven-resources-plugin</artifactId>
                 <configuration>
                     <delimiters>
-                        <delimit>${*}</delimit>
+                        <delimit>${}</delimit>
                     </delimiters>
                 </configuration>
             </plugin>
