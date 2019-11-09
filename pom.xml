@@ -18,6 +18,7 @@
         <module>provider-dept-8003</module>
         <module>consumer-dept-feign</module>
         <module>provider-dept-hystrix</module>
+        <module>consumer-hystrix-dashboard</module>
     </modules>
     <packaging>pom</packaging>
 

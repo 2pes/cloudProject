@@ -3,6 +3,10 @@ server:
   port: 801
   #context-path: /study 配置根目录
 
+feign:
+  hystrix:
+    enabled: true
+
 eureka:
   client:
     register-with-eureka: false
