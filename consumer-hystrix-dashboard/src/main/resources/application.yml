@@ -1,0 +1,21 @@
+#配置服务器信息
+server:
+  port: 9001
+
+#spring:
+#  application:
+#    name: hystrix-dasboard #服务注册到Eureka上使用的名称
+#
+#eureka:
+#  client:
+#    service-url:  # 集群情况下如下，如果是单机版，只需要配置单机版Eureka地址
+#      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+#  instance:
+#    instance-id: hystrix-dasboard-9001
+#    prefer-ip-address: true #访问路径显示IP地址
+
+info:
+  app.name: project-cloud
+  company.name: com.company.project
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

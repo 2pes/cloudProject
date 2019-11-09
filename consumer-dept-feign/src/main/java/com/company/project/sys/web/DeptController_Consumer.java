@@ -16,8 +16,6 @@ public class DeptController_Consumer {
     @Autowired
     private DeptClientService service;
 
-
-
     @RequestMapping(value = "/consumer/dept/get/{id}")
     public Dept get(@PathVariable Long id){
         return this.service.get(id);
