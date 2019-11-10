@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: config-erureka-server-client
