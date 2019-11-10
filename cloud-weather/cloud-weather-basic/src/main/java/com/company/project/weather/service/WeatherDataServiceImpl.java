@@ -27,35 +27,31 @@ public class WeatherDataServiceImpl implements WeatherDataService {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-    @Override
-    public void weatherDataSync(String cityId) {
-
-    }
 
     @Override
     public WeatherResponse getDataByCityId(String cityId) {
         String uri = WEATHER_URI + "citykey=" + cityId;
-        return this.doGetWeahter(uri);
+
+        //return this.doGetWeahter(uri);
+        return this.doGetWeahterFromRedis(uri, cityId);
     }
 
     @Override
     public WeatherResponse getDataByCityName(String cityName) {
         String uri = WEATHER_URI + "city=" + cityName;
         //return this.doGetWeahter(uri);
-        return this.doGetWeahterFromRedis(uri);
+        return this.doGetWeahterFromRedis(uri, cityName);
     }
 
+
     private WeatherResponse doGetWeahter(String uri) {
-        ResponseEntity<String> respString = restTemplate.getForEntity(uri, String.class);
+
 
         ObjectMapper mapper = new ObjectMapper();
         WeatherResponse resp = null;
         String strBody = null;
 
-        if (respString.getStatusCodeValue() == 200) {
-            strBody = respString.getBody();
-        }
-
+        strBody = genResponseString(uri, strBody);
         try {
             resp = mapper.readValue(strBody, WeatherResponse.class);
         } catch (IOException e) {
@@ -65,8 +61,13 @@ public class WeatherDataServiceImpl implements WeatherDataService {
         return resp;
     }
 
-    private WeatherResponse doGetWeahterFromRedis(String uri) {
-        String key = uri;
+    /**
+     * redis缓存数据
+     *
+     * @param uri
+     * @return
+     */
+    private WeatherResponse doGetWeahterFromRedis(String uri, String key) {
         String strBody = null;
         ObjectMapper mapper = new ObjectMapper();
         WeatherResponse resp = null;
@@ -78,11 +79,7 @@ public class WeatherDataServiceImpl implements WeatherDataService {
         } else {
             logger.info("Redis don't has data");
             // 缓存没有，再调用服务接口来获取
-            ResponseEntity<String> respString = restTemplate.getForEntity(uri, String.class);
-
-            if (respString.getStatusCodeValue() == 200) {
-                strBody = respString.getBody();
-            }
+            strBody = genResponseString(uri, strBody);
 
             // 数据写入缓存
             ops.set(key, strBody, TIME_OUT, TimeUnit.SECONDS);
@@ -98,4 +95,39 @@ public class WeatherDataServiceImpl implements WeatherDataService {
         return resp;
 
     }
+
+
+    @Override
+    public void syncDateByCityId(String cityId) {
+        String uri = WEATHER_URI + "citykey=" + cityId;
+        this.saveWeatherData(uri, cityId);
+    }
+
+    /**
+     * 把天气数据放在缓存
+     *
+     * @param uri
+     */
+    private void saveWeatherData(String uri, String key) {
+        String strBody = null;
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+
+        // 调用服务接口来获取
+        strBody = genResponseString(uri, strBody);
+
+        // 数据写入缓存
+        ops.set(key, strBody, TIME_OUT, TimeUnit.SECONDS);
+
+    }
+
+
+    private String genResponseString(String uri, String strBody) {
+        ResponseEntity<String> respString = restTemplate.getForEntity(uri, String.class);
+
+        if (respString.getStatusCodeValue() == 200) {
+            strBody = respString.getBody();
+        }
+        return strBody;
+    }
+
 }

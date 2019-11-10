@@ -1,4 +1,4 @@
-package com.company.project.weather.config;
+package com.company.project.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
