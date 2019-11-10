@@ -1,0 +1,16 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/
+  instance:
+    instance-id: eureka-client-8001
+    prefer-ip-address: true #显示ip地址
+
+info:
+  app.name: weather-microservice
+  company.name: com.company.project
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
