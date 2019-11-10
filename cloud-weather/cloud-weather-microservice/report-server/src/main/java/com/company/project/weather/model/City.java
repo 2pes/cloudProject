@@ -6,17 +6,24 @@ import lombok.experimental.Accessors;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.util.List;
 
 @Data
 @ToString
 @Accessors(chain = true)
-@XmlRootElement(name = "c")
+@XmlRootElement(name = "d")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CityList {
-    @XmlElement(name = "d")
-    private List<City> cityList;
+public class City {
+    @XmlAttribute(name = "d1")
+    private String cityId;
 
+    @XmlAttribute(name = "d2")
+    private String cityName;
+
+    @XmlAttribute(name = "d3")
+    private String cityCode;
+
+    @XmlAttribute(name = "d4")
+    private String province;
 }
