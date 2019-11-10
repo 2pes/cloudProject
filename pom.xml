@@ -22,6 +22,8 @@
         <module>zuul-gateway-9527</module>
         <module>config-3344</module>
         <module>config-client-3355</module>
+        <module>config-eureka-server-client-7001</module>
+        <module>config-provider-dept-client-8001</module>
     </modules>
     <packaging>pom</packaging>
 
