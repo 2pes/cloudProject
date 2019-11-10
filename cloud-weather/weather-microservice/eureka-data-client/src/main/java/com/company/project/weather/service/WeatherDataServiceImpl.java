@@ -15,8 +15,6 @@ import java.io.IOException;
 public class WeatherDataServiceImpl implements WeatherDataService {
     private final static Logger logger = LoggerFactory.getLogger(WeatherDataServiceImpl.class);
 
-    private static final String WEATHER_URI = "http://wthrcdn.etouch.cn/weather_mini?";
-
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 

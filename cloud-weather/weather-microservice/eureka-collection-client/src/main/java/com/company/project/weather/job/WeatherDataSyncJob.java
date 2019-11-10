@@ -1,6 +1,7 @@
 package com.company.project.weather.job;
 
-import com.company.project.weather.model.City;
+import com.company.project.city.model.City;
+import com.company.project.weather.service.CityClient;
 import com.company.project.weather.service.WeatherDataCollectionService;
 import com.google.common.collect.Lists;
 import org.quartz.JobExecutionContext;
@@ -26,6 +27,8 @@ public class WeatherDataSyncJob extends QuartzJobBean {
 
     @Autowired
     private WeatherDataCollectionService weatherDataCollectionService;
+    @Autowired
+    private CityClient cityClient;
 
 
     @Override
@@ -33,14 +36,12 @@ public class WeatherDataSyncJob extends QuartzJobBean {
         logger.info("Weather Data Sync Job. Start！");
 
         // 获取城市ID列表
-        //TODO 改为城市数据api微服务提供数据
+        // 改为城市数据api微服务提供数据
         List<City> cityList = null;
 
         try {
-            //TODO  改为城市数据api微服务提供数据
-            cityList = Lists.newArrayList();
-            cityList.add(new City().setCityId("101010600"));
-
+            // 改为由城市数据API微服务提供数据
+            cityList = cityClient.listCity();
         } catch (Exception e) {
             logger.error("Exception!", e);
         }

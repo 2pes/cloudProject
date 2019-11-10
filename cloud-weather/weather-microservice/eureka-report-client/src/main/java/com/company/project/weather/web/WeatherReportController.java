@@ -1,7 +1,8 @@
 package com.company.project.weather.web;
 
 
-import com.company.project.weather.model.City;
+import com.company.project.city.model.City;
+import com.company.project.weather.service.CityClient;
 import com.company.project.weather.service.WeatherReportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,21 +29,16 @@ public class WeatherReportController {
 
     @Autowired
     private WeatherReportService weatherReportService;
+    @Autowired
+    private CityClient cityClient;
 
     @GetMapping("/cityId/{cityId}")
     public ModelAndView getReportByCityId(@PathVariable("cityId") String cityId, Model model) throws Exception {
         // 获取城市ID列表
-        // TODO 改为由城市数据API微服务来提供数据
         List<City> cityList = null;
-
         try {
-
-            // TODO 改为由城市数据API微服务提供数据
-            cityList = new ArrayList<>();
-            City city = new City();
-            city.setCityId("101280601");
-            city.setCityName("深圳");
-            cityList.add(city);
+            // 改为由城市数据API微服务提供数据
+            cityList = cityClient.listCity();
 
         } catch (Exception e) {
             logger.error("Exception!", e);

@@ -1,6 +1,12 @@
 server:
   port: 8001
 
+feign:
+  client:
+    config:
+      feignName:
+        connectionTimeout: 5000
+        readTimeout: 5000
 
 eureka:
   client:
