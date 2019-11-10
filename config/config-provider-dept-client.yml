@@ -42,7 +42,7 @@ eureka:
   client:   #客户端注册进eureka服务列表内
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
-      instance-id: config-provider-dept8001 #自定义服务名称信息
+      instance-id: config-provider-dept-client8001 #自定义服务名称信息
       prefer-ip-address: true #访问路径可以显示IP地址
 
 info:
@@ -58,7 +58,7 @@ spring:
   application:
     name: provider-dept
   datasource:
-    url: jdbc:mysql://localhost:3306/cloud_test1?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
+    url: jdbc:mysql://localhost:3306/cloud_test2?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&verifyServerCertificate=false&useSSL=false
     username: cloud
     password: cloud
     driver-class-name: com.mysql.jdbc.Driver
@@ -91,7 +91,7 @@ eureka:
   client:   #客户端注册进eureka服务列表内
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
-      instance-id: config-provider-dept8001 #自定义服务名称信息
+      instance-id: config-provider-dept-client8001 #自定义服务名称信息
       prefer-ip-address: true #访问路径可以显示IP地址
 
 info:
