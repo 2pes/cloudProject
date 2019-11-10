@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+spring:
+  profiles: dev   #开发环境
+  application:
+    name: dept-config-dev
+---
+spring:
+  profiles: test   #开发环境
+  application:
+    name: dept-config-test
+#   注意请保存为UTF-8格式

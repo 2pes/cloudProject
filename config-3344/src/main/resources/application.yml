@@ -1,0 +1,25 @@
+#配置服务器信息
+server:
+  port: 3344
+
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:maxmarvel/cloudProject.git
+          search-paths: config   #文件目录
+
+#  cloud:
+#    config:
+#    server:
+#      native:
+#        search-locations: classpath:/shared
+
+info:
+  app.name: project-cloud
+  company.name: com.company.project
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}

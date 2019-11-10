@@ -20,6 +20,7 @@
         <module>provider-dept-hystrix</module>
         <module>consumer-hystrix-dashboard</module>
         <module>zuul-gateway-9527</module>
+        <module>config-3344</module>
     </modules>
     <packaging>pom</packaging>
 
