@@ -49,9 +49,8 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 
         ObjectMapper mapper = new ObjectMapper();
         WeatherResponse resp = null;
-        String strBody = null;
 
-        strBody = genResponseString(uri, strBody);
+        String strBody = genResponse(uri);
         try {
             resp = mapper.readValue(strBody, WeatherResponse.class);
         } catch (IOException e) {
@@ -79,7 +78,7 @@ public class WeatherDataServiceImpl implements WeatherDataService {
         } else {
             logger.info("Redis don't has data");
             // 缓存没有，再调用服务接口来获取
-            strBody = genResponseString(uri, strBody);
+              strBody = genResponse(uri);
 
             // 数据写入缓存
             ops.set(key, strBody, TIME_OUT, TimeUnit.SECONDS);
@@ -109,11 +108,10 @@ public class WeatherDataServiceImpl implements WeatherDataService {
      * @param uri
      */
     private void saveWeatherData(String uri, String key) {
-        String strBody = null;
         ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
 
         // 调用服务接口来获取
-        strBody = genResponseString(uri, strBody);
+       String strBody = genResponse(uri);
 
         // 数据写入缓存
         ops.set(key, strBody, TIME_OUT, TimeUnit.SECONDS);
@@ -121,7 +119,9 @@ public class WeatherDataServiceImpl implements WeatherDataService {
     }
 
 
-    private String genResponseString(String uri, String strBody) {
+    private String genResponse(String uri) {
+        String strBody = null;
+        // 调用服务接口来获取
         ResponseEntity<String> respString = restTemplate.getForEntity(uri, String.class);
 
         if (respString.getStatusCodeValue() == 200) {
