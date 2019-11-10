@@ -1,5 +1,5 @@
 server:
-  port: 8001
+  port: 8004
 
 
 eureka:
@@ -7,7 +7,7 @@ eureka:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
   instance:
-    instance-id: eureka-client-8001
+    instance-id: eureka-city-client-8004
     prefer-ip-address: true #显示ip地址
 
 info:
@@ -17,4 +17,4 @@ info:
   build.version: ${project.version}
 spring:
   application:
-    name: eureka-client-test
+    name: eureka-city-client

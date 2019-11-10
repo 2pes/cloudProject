@@ -2,15 +2,14 @@ package com.company.project;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-/**
- * @author Chen
- * @created 2019-11-08-0:10.
- */
 @SpringBootApplication
 @EnableEurekaClient
-public class Config_Provider_Dept_Client8001_App {
+public class CityClientApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(Config_Provider_Dept_Client8001_App.class, args);
+        SpringApplication.run(CityClientApplication.class, args);
     }
+
 }

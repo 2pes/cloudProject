@@ -3,12 +3,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
+        <module>eureka-server</module>
+        <module>eureka-client</module>
+        <module>eureka-collection-client</module>
+        <module>eureka-data-client</module>
+        <module>eureka-report-client</module>
+        <module>eureka-city-client</module>
         <module>collection-server</module>
         <module>data-server</module>
         <module>report-server</module>
         <module>city-server</module>
-        <module>eureka-server</module>
-        <module>eureka-client</module>
     </modules>
     <groupId>com.company.project</groupId>
     <artifactId>weather-microservice</artifactId>
