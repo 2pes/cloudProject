@@ -10,7 +10,7 @@ spring:
       server:
         git:
           uri: git@github.com:maxmarvel/cloudProject.git
-          search-paths: config   #文件目录
+          search-paths: config/cloud-study-atguigu   #文件目录
 
 #  cloud:
 #    config:
