@@ -1,13 +1,12 @@
 server:
-  port: 8005
-
+  port: 8006
 
 eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
   instance:
-    instance-id: eureka-client-8005
+    instance-id: eureka-client-feign-8006
     prefer-ip-address: true #显示ip地址
 
 info:
@@ -17,4 +16,10 @@ info:
   build.version: ${project.version}
 spring:
   application:
-    name: eureka-client-test
+    name: eureka-client-feign-test
+feign:
+  client:
+    config:
+      feignName:
+        connectionTimeout: 5000
+        readTimeout: 5000
