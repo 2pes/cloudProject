@@ -12,12 +12,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://eurek7001.com:7001/eureka/
-
-info:
-  app.name: project-cloud
-  company.name: com.company.project
-  build.artifactId: ${project.artifactId}
-  build.version: ${project.version}
 ---
 server:
   port: 8202
@@ -28,3 +22,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka/
+
+
+info:
+  app.name: project-cloud
+  company.name: com.company.project
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
