@@ -15,6 +15,7 @@
         <module>report-server</module>
         <module>city-server</module>
         <module>weather-common</module>
+        <module>eureka-client-zuul</module>
     </modules>
     <groupId>com.company.project</groupId>
     <artifactId>weather-microservice</artifactId>

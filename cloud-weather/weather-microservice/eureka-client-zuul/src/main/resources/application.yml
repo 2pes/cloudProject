@@ -1,0 +1,29 @@
+server:
+  port: 9527
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: eureka-client-9527
+    prefer-ip-address: true #显示ip地址
+
+info:
+  app.name: weather-microservice
+  company.name: com.company.project
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+spring:
+  application:
+    name: eureka-client-zuul-test
+
+zuul:
+  routes:
+    eurekaClient.serviceId: EUREKA-CLIENT-TEST
+    eurekaClient.path: /eureka-client-test/**
+  #  ignored-services: provider-dept
+#  ignored-services: "*"
+#  prefix: /cloudDept
+  #http://zuul9527.com:9527/cloudDept/zuulDept/dept/list
