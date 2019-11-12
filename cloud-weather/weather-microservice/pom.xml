@@ -18,6 +18,8 @@
         <module>eureka-client-zuul</module>
         <module>zuul-gateway</module>
         <module>zuul-report-client</module>
+        <module>config-server</module>
+        <module>config-client</module>
     </modules>
     <groupId>com.company.project</groupId>
     <artifactId>weather-microservice</artifactId>
